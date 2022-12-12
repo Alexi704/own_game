@@ -20,7 +20,7 @@
         "100": {
             "question": "dog",
             "answer": "собака",
-            "asked": false
+            "asked": true
         },
         "200": {
             "question": "shark",
@@ -37,17 +37,17 @@
         "100": {
             "question": "apple",
             "answer": "яблоко",
-            "asked": false
+            "asked": true
         },
         "200": {
             "question": "berry",
             "answer": "ягода",
-            "asked": false
+            "asked": true
         },
         "300": {
             "question": "venison",
             "answer": "оленина",
-            "asked": false
+            "asked": true
         }
     }
 }
