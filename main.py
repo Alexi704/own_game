@@ -1,4 +1,5 @@
-from functions import data_output_screen, user_selection, is_question, checking_user_answer, check_answer
+from functions import data_output_screen, user_selection, is_question, checking_user_answer, check_answer, \
+    game_total_score
 
 if __name__ == '__main__':
 
@@ -12,12 +13,13 @@ if __name__ == '__main__':
         elif user_selection(user_input):
             user_category, user_price = user_selection(user_input)
             if is_question(user_category, user_price) is False:
-                print(f'Вы уже использовали данное задание.')
+                pass
             else:
                 user_answer = input(is_question(user_category, user_price))
                 # проверяем наличие темы и цены, а затем получаем ответ от пользователя
                 print(checking_user_answer(user_answer, user_category, user_price))
                 # проверяем ответ пользователя и начисляем баллы
-    print('Вопросов больше нет')
 
-    # TODO надо подсчитать очки и сделать сброс JSON-а
+    print(game_total_score())
+
+
