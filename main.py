@@ -1,5 +1,7 @@
 from functions import data_output_screen, user_selection, is_question, checking_user_answer, check_answer, \
     game_total_score
+from convert_to_json import convert_to_json
+
 
 if __name__ == '__main__':
 
@@ -21,5 +23,7 @@ if __name__ == '__main__':
                 # проверяем ответ пользователя и начисляем баллы
 
     print(game_total_score())
+
+    convert_to_json() # преобразуем данные в исходное состояние
 
 

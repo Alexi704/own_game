@@ -112,14 +112,15 @@ def game_total_score():
     """Считываем файл с результатами игры"""
     with open('result_games.json', encoding='utf-8') as file:
         data = json.load(file)
-    return data
-
-    # return f"""
-    #     У нас закончились вопросы!
-    #     Вас счет: {TOTAL_SCORE}
-    #     Верных ответов: {correct_answer}
-    #     Неверных ответов: {incorrect_answer}
-    #     """
+        points = data['points']
+        correct = data['correct']
+        incorrect = data['incorrect']
+    return f"""
+        У нас закончились вопросы!
+        Вас счет: {points}
+        Верных ответов: {correct}
+        Неверных ответов: {incorrect}
+        """
 
 
 # print(checking_user_answer('Акула', 'Животные', 200))
