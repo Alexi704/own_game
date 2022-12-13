@@ -1,5 +1,9 @@
 import json
 
+TOTAL_SCORE = 0
+correct_answer = 0
+incorrect_answer = 0
+
 
 def read_questions():
     """Читаем файл с вопросами"""
@@ -72,9 +76,6 @@ def is_question(user_category, user_price):
 
 
 # print(is_question('Еда', 100))
-TOTAL_SCORE = 0
-correct_answer = 0
-incorrect_answer = 0
 
 
 def checking_user_answer(user_answer, user_category, user_price):
@@ -96,16 +97,26 @@ def checking_user_answer(user_answer, user_category, user_price):
                         TOTAL_SCORE -= int(price)
                         incorrect_answer += 1
                         result = f'Неверно, на самом деле \"{price_variables["answer"]}\". –{price}. Ваш счет = {TOTAL_SCORE}'
+
+    # перезаписываем json-файл с отметкой о том, что ответили на вопрос
     raw_json = json.dumps(data, ensure_ascii=False, indent=4)
     with open('questions.json', 'w', encoding='utf-8') as file:
         file.write(raw_json)
 
+    return result
+
+
+def save_result_game():
+    """Записываем результаты игры в json-файл"""
+    global TOTAL_SCORE
+    global correct_answer
+    global incorrect_answer
     total_score = {"points": TOTAL_SCORE, 'correct': correct_answer, 'incorrect': incorrect_answer}
     result_game_json = json.dumps(total_score, ensure_ascii=False, indent=4)
-    with open('result_games.json', 'w', encoding='utf-8') as file:
+    with open('result_games.json', 'w') as file:
+        # first_content = file.read()
         file.write(result_game_json)
-
-    return result
+        # file.write(first_content)
 
 
 def game_total_score():
@@ -121,6 +132,5 @@ def game_total_score():
         Верных ответов: {correct}
         Неверных ответов: {incorrect}
         """
-
 
 # print(checking_user_answer('Акула', 'Животные', 200))
