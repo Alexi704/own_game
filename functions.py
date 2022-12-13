@@ -105,7 +105,6 @@ def checking_user_answer(user_answer, user_category, user_price):
     with open('result_games.json', 'w', encoding='utf-8') as file:
         file.write(result_game_json)
 
-
     return result
 
 
