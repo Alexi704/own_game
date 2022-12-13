@@ -78,7 +78,7 @@ incorrect_answer = 0
 
 
 def checking_user_answer(user_answer, user_category, user_price):
-    """Проверяем ответ пользователя"""
+    """Проверяем ответ пользователя и записываем результаты в файл"""
     global TOTAL_SCORE
     global correct_answer
     global incorrect_answer
@@ -104,6 +104,7 @@ def checking_user_answer(user_answer, user_category, user_price):
     result_game_json = json.dumps(total_score, ensure_ascii=False, indent=4)
     with open('result_games.json', 'w', encoding='utf-8') as file:
         file.write(result_game_json)
+
 
     return result
 
